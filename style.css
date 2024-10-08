@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+    --body-bgcol: aqua;
+    --container-bgcol: white;
+    --btn-normal-bgcol: aqua;
+    --btn-normal-color: black;
+    --btn-normal-hover-bgcol: blue;
+    --btn-normal-hover-color: white;
+    --btn-del-yes-bgcol: lightsalmon;
+    --btn-del-yes-color: white;
+    --btn-del-yes-hover-bgcol: red;
+    --btn-del-yes-hover-color: white;
+    --btn-del-no-bgcol: lightgreen;
+    --btn-del-no-color: white;
+    --btn-del-no-hover-bgcol: green;
+    --btn-del-no-hover-color: white;
+}
+body {
+    background-color: var(--body-bgcol);
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+.container {
+    background-color: var(--container-bgcol);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 15px;
+}
+.btnCreate {
+    display: inline-block;
+    text-decoration: none;
+    background-color: lightgreen;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    padding: 10px 15px;
+    margin: 10px 0;
+}
+.btnCreate:hover {
+    background-color: blue;
+}
+.commentaire {
+    text-align: center;
+    margin: 10px 0;
+}
+.commentaire p.succes {
+    display: initial;
+    background-color: var(--btn-del-no-bgcol);
+    color: var(--btn-del-no-color);
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+.commentaire p.erreur {
+    display: initial;
+    background-color: var(--btn-del-yes-bgcol);
+    color: var(--btn-del-yes-color);
+    font-weight: bold;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+.tableContainer {
+    overflow-y: auto;
+    height: 30vh;
+}
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+}
+/*
+table thead {
+    background-color: lightgray;
+     z-index: 1; 
+}
+     */
+
+table thead th {
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    background-color: lightgray;
+    /* z-index: 1; */
+}
+table tbody {
+    overflow-y: scroll;
+    height: 30vh;
+    width: 100%;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: linen;
+}
+table tbody tr:hover {
+    background-color: blue;
+}
+table tbody tr:hover td {
+    color: white;
+}
+table tbody tr td.actions {
+    padding: 8px;
+    text-align: right;
+}
+table tbody tr td.actions .edit,
+table tbody tr td.actions .trash {
+    display: inline-flex;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    padding: 12px;
+}
+table tbody tr td.actions .trash {
+    /* background-color: #b73737; */
+    background-color: lightpink;
+}
+table tbody tr td.actions .trash:hover {
+    /* background-color: #a33131; */
+    background-color: red;
+}
+table tbody tr td.actions .edit {
+    /* background-color: #37afb7; */
+    background-color: lightgreen;
+}
+table tbody tr td.actions .edit:hover {
+    /* background-color: #319ca3; */
+    background-color: green;
+}
+
+.paginationContainer {
+    height: 25px;
+    background-color: lightcyan;
+    width: 50%;
+    margin: 0 auto;
+}
+.paginationContainer p {
+    text-align: center;
+}
+
+.update.erreur,
+.create.erreur,
+.delete.erreur {
+    width: 80%;
+    text-align: center;
+    background-color: var(--btn-del-yes-bgcol);
+    color: var(--btn-del-yes-color);
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+form input {
+    padding: 5px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid aqua;
+    height: 50px;
+    outline: none;
+}
+form textarea {
+    resize: none;
+    padding: 5px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid aqua;
+    height: 150px;
+    outline: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+}
+
+.buttonsContainer a,
+.buttonsContainer input {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.buttonsContainer a,
+.buttonsContainer input {
+    background-color: var(--btn-normal-bgcol);
+    font-weight: bold;
+    height: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--btn-normal-color);
+    font-size: 0.6rem;
+}
+.buttonsContainer a:hover,
+.buttonsContainer input:hover {
+    background-color: var(--btn-normal-hover-bgcol);
+    color: var(--btn-normal-hover-color);
+}
+
+/* ************************************************************************************************** */
+/* Page de suppression */
+/* ************************************************************************************************** */
+.confirmation {
+    text-align: center;
+    margin-top: 15px;
+}
+.buttonsDelContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+.buttonsDelContainer a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.buttonsDelContainer a.yes {
+    background-color: var(--btn-del-yes-bgcol);
+    color: var(--btn-del-yes-color);
+    font-weight: bold;
+}
+.buttonsDelContainer a.no {
+    background-color: var(--btn-del-no-bgcol);
+    color: var(--btn-del-no-color);
+    font-weight: bold;
+}
+.buttonsDelContainer a.yes:hover {
+    background-color: var(--btn-del-yes-hover-bgcol);
+    color: var(--btn-del-yes-hover-color);
+}
+.buttonsDelContainer a.no:hover {
+    background-color: var(--btn-del-no-hover-bgcol);
+    color: var(--btn-del-no-hover-color);
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .buttonsContainer a,
+    .buttonsContainer input {
+        height: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .buttonsContainer a,
+    .buttonsContainer input {
+        height: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-size: 1rem;
+    }
+}
